@@ -9,3 +9,14 @@ CREATE TABLE dbo.Stg_MusteriKonum
     BolgeAd NVARCHAR(100),
     SiraNo BIGINT
 );
+
+-- Creates the staging table for customer wealth calculations.
+-- Stores total cash, assets, and combined wealth in TRY.
+
+CREATE TABLE dbo.Stg_MusteriServet
+(
+    MusteriID INT,
+    NakitTRY DECIMAL(19,4),
+    VarlikTRY DECIMAL(19,4),
+    ServetTRY DECIMAL(19,4)
+);

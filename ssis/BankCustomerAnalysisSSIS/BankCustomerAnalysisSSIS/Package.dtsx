@@ -11,8 +11,8 @@
   DTS:LocaleID="1055"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{A293B00D-8B01-48EC-8DAB-398B5BB8517F}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{CA5B8452-714C-4946-86CB-16DB2A5AFD47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -415,6 +415,369 @@ LEFT JOIN BOLGE B
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\DFT_CustomerWealth"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E428C29D-A729-41D0-837B-381EBF6F7222}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_CustomerWealth"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_CustomerWealth\DST_CustomerWealth"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST_CustomerWealth"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stg_MusteriServet]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].Columns[NakitTRY]"
+                      cachedDataType="r8"
+                      cachedName="NakitTRY"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[NakitTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[NakitTRY]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].Columns[VarlikTRY]"
+                      cachedDataType="r8"
+                      cachedName="VarlikTRY"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[VarlikTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[VarlikTRY]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].Columns[ServetTRY]"
+                      cachedDataType="r8"
+                      cachedName="ServetTRY"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[ServetTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[ServetTRY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      dataType="i4"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[NakitTRY]"
+                      dataType="numeric"
+                      name="NakitTRY"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[VarlikTRY]"
+                      dataType="numeric"
+                      name="VarlikTRY"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input].ExternalColumns[ServetTRY]"
+                      dataType="numeric"
+                      name="ServetTRY"
+                      precision="19"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerWealth\DST_CustomerWealth.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\DST_CustomerWealth.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerWealth\DST_CustomerWealth.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_CustomerWealth\SRC_CustomerWealth"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC_CustomerWealth"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    MTV.MusteriID,
+    MTV.NakitTRY,
+    MTN.VarlikTRY,
+    (MTV.NakitTRY + MTN.VarlikTRY) AS ServetTRY
+FROM
+(
+    SELECT
+        M.MusteriID,
+        ISNULL(SUM(H.Meblag * DT.Kur), 0) AS NakitTRY
+    FROM MUSTERI M
+    LEFT JOIN HESAP H
+        ON M.MusteriID = H.MusteriID
+    LEFT JOIN DOVIZ_TUR DT
+        ON H.DovizID = DT.DovizID
+    GROUP BY M.MusteriID
+) AS MTV
+INNER JOIN
+(
+    SELECT
+        M.MusteriID,
+        ISNULL(SUM(MV.Deger * DT.Kur), 0) AS VarlikTRY
+    FROM MUSTERI M
+    LEFT JOIN MUSTERI_VARLIK MV
+        ON M.MusteriID = MV.MusteriID
+    LEFT JOIN DOVIZ_TUR DT
+        ON MV.DovizID = DT.DovizID
+    GROUP BY M.MusteriID
+) AS MTN
+    ON MTV.MusteriID = MTN.MusteriID;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[NakitTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[NakitTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[NakitTRY]"
+                      name="NakitTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[VarlikTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[VarlikTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[VarlikTRY]"
+                      name="VarlikTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      name="ServetTRY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[NakitTRY]"
+                      dataType="r8"
+                      name="NakitTRY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[VarlikTRY]"
+                      dataType="r8"
+                      name="VarlikTRY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      dataType="r8"
+                      name="ServetTRY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[NakitTRY]"
+                      dataType="r8"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[NakitTRY]"
+                      name="NakitTRY" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[VarlikTRY]"
+                      dataType="r8"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[VarlikTRY]"
+                      name="VarlikTRY" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      name="ServetTRY" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_CustomerWealth.Paths[OLE DB Source Output]"
+              endId="Package\DFT_CustomerWealth\DST_CustomerWealth.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_CustomerWealth\SRC_CustomerWealth.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\SQL_ClearCustomerLocation"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -431,6 +794,23 @@ LEFT JOIN BOLGE B
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Stg_MusteriKonum;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_ClearCustomerWealth"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{51E550A0-70DB-4F47-A019-0EC8BB0E3B0A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_ClearCustomerWealth"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6490116-8985-4458-BD8A-BD710A6F20DF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Stg_MusteriServet;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -441,6 +821,22 @@ LEFT JOIN BOLGE B
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\DFT_CustomerAnalysis" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{53747D1A-2CAF-4574-985E-831668EF3E11}"
+      DTS:From="Package\DFT_CustomerAnalysis"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL_ClearCustomerWealth" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A907F3E-76A5-4A51-9E3F-9670E84CFD38}"
+      DTS:From="Package\SQL_ClearCustomerWealth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT_CustomerWealth" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -453,15 +849,23 @@ LEFT JOIN BOLGE B
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="195,42"
           Id="Package\DFT_CustomerAnalysis"
           TopLeft="234,132" />
         <NodeLayout
+          Size="188,42"
+          Id="Package\DFT_CustomerWealth"
+          TopLeft="236,326" />
+        <NodeLayout
           Size="223,42"
           Id="Package\SQL_ClearCustomerLocation"
           TopLeft="221,27" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\SQL_ClearCustomerWealth"
+          TopLeft="223,239" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="332,69">
@@ -484,6 +888,50 @@ LEFT JOIN BOLGE B
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="331,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="330.25,281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -493,13 +941,13 @@ LEFT JOIN BOLGE B
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="179,42"
-          Id="Package\DFT_CustomerAnalysis\SRC_CustomerData"
-          TopLeft="245,82" />
-        <NodeLayout
           Size="196,42"
           Id="Package\DFT_CustomerAnalysis\DST_CustomerLocation"
           TopLeft="315,227" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DFT_CustomerAnalysis\SRC_CustomerData"
+          TopLeft="245,82" />
         <EdgeLayout
           Id="Package\DFT_CustomerAnalysis.Paths[OLE DB Source Output]"
           TopLeft="334.5,124">
@@ -538,7 +986,7 @@ LEFT JOIN BOLGE B
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_CustomerAnalysis\SRC_CustomerData">
+    design-time-name="Package\DFT_CustomerAnalysis\DST_CustomerLocation">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -551,7 +999,7 @@ LEFT JOIN BOLGE B
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_CustomerAnalysis\DST_CustomerLocation">
+    design-time-name="Package\DFT_CustomerAnalysis\SRC_CustomerData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -560,6 +1008,65 @@ LEFT JOIN BOLGE B
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_CustomerWealth">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DFT_CustomerWealth\SRC_CustomerWealth"
+          TopLeft="293,72" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DFT_CustomerWealth\DST_CustomerWealth"
+          TopLeft="297,222" />
+        <EdgeLayout
+          Id="Package\DFT_CustomerWealth.Paths[OLE DB Source Output]"
+          TopLeft="389.75,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,108"
+              Start="0,0"
+              End="0,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_CustomerWealth\DST_CustomerWealth">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_CustomerWealth\SRC_CustomerWealth">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
