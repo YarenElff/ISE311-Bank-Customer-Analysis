@@ -11,8 +11,8 @@
   DTS:LocaleID="1055"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{CA5B8452-714C-4946-86CB-16DB2A5AFD47}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{EE091442-6161-4030-B0C8-1CC4F00E39D0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -415,6 +415,513 @@ LEFT JOIN BOLGE B
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\DFT_CustomerRanking"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1D8BD44D-049F-43FF-8317-B973C5F30F26}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_CustomerRanking"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_CustomerRanking\DFT_CustomerRanking"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DFT_CustomerRanking"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stg_MusteriSiralama]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[TamAd]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="TamAd"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[TamAd]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SehirAd]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[BolgeAd]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BolgeAd"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[BolgeAd]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[KategoriID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="KategoriID"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[KategoriID]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[Yas]"
+                      cachedDataType="i4"
+                      cachedName="Yas"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[Yas]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[Yas]" />
+                    <inputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].Columns[SiraNo]"
+                      cachedDataType="i8"
+                      cachedName="SiraNo"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SiraNo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      dataType="i4"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      dataType="wstr"
+                      length="200"
+                      name="TamAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="BolgeAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[Yas]"
+                      dataType="i4"
+                      name="Yas" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
+                      dataType="i8"
+                      name="SiraNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_CustomerRanking\SRC_CustomerRanking"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC_CustomerRanking"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT MusteriBilgi.MusteriID, MusteriBilgi.TamAd, MusteriBilgi.SehirAd, MusteriBilgi.BolgeAd,
+       MusteriBilgi.KategoriID, MusteriBilgi.Yas, 
+	   MusteriServet.ServetTRY, DENSE_RANK() OVER (PARTITION BY MusteriBilgi.BolgeAd, MusteriBilgi.KategoriID ORDER BY MusteriBilgi.Yas ASC, MusteriServet.ServetTRY DESC) AS SiraNo
+	   
+FROM
+(SELECT M.MusteriID, 
+CASE WHEN M.IkinciAd IS NOT NULL THEN 
+CONCAT(CONCAT(M.IlkAd,' '),CONCAT(M.IkinciAd, ' '),M.Soyad) ELSE 
+CONCAT(CONCAT(M.IlkAd,' '),M.Soyad)
+END AS TamAd, MSX.SehirAd, MSX.BolgeAd,
+M.KategoriID,
+DATEDIFF(YEAR, M.DTarihi, GETDATE()) AS Yas
+FROM MUSTERI M
+INNER JOIN
+(SELECT MSB.MusteriID, MSB.SehirAd, MSB.BolgeAd
+FROM
+(SELECT MS.MusteriID, MS.AcilmaTarihi, MS.SiraNo, MS.SehirAd, B.BolgeAd FROM BOLGE B
+LEFT JOIN 
+(SELECT H.MusteriID, H.AcilmaTarihi, S.BolgeID, S.SehirAd,
+ROW_NUMBER() OVER (PARTITION BY MusteriID ORDER BY AcilmaTarihi) AS SiraNo
+FROM HESAP H
+LEFT JOIN BANKA_SUBE BS
+ON H.SubeID = BS.SubeID
+LEFT JOIN ILCE I
+ON BS.IlceID = I.IlceID
+LEFT JOIN SEHIR S
+ON I.SehirID = S.SehirID) MS
+ON MS.BolgeID = B.BolgeID) MSB
+WHERE SiraNo=1) MSX
+ON M.MusteriID = MSX.MusteriID) MusteriBilgi
+
+LEFT JOIN 
+
+(SELECT MTV.MusteriID, (MTV.NakitTRY + MTN.VarlikTRY) AS ServetTRY
+FROM
+(SELECT M.MusteriID, ISNULL(SUM(H.Meblag*DT.Kur),0) AS NakitTRY
+FROM MUSTERI M
+LEFT JOIN HESAP H
+ON M.MusteriID = H.MusteriID
+LEFT JOIN DOVIZ_TUR DT
+ON H.DovizID = DT.DovizID
+GROUP BY M.MusteriID) MTV
+INNER JOIN
+(SELECT M.MusteriID, ISNULL(SUM(MV.Deger*DT.Kur),0) AS VarlikTRY
+FROM MUSTERI M
+LEFT JOIN MUSTERI_VARLIK MV
+ON M.MusteriID = MV.MusteriID
+LEFT JOIN DOVIZ_TUR DT
+ON MV.DovizID = DT.DovizID
+GROUP BY M.MusteriID) MTN
+ON MTV.MusteriID = MTN.MusteriID) MusteriServet
+
+ON MusteriBilgi.MusteriID = MusteriServet.MusteriID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[YEDMONSTER\YEDSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[TamAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[TamAd]"
+                      length="152"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[TamAd]"
+                      name="TamAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      length="50"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      name="SehirAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      length="20"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      name="BolgeAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      length="1"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      name="KategoriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[Yas]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[Yas]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[Yas]"
+                      name="Yas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      name="ServetTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SiraNo]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[SiraNo]"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].Columns[SiraNo]"
+                      name="SiraNo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[TamAd]"
+                      dataType="wstr"
+                      length="152"
+                      name="TamAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      name="BolgeAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[Yas]"
+                      dataType="i4"
+                      name="Yas" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      dataType="r8"
+                      name="ServetTRY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output].ExternalColumns[SiraNo]"
+                      dataType="i8"
+                      name="SiraNo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[TamAd]"
+                      dataType="wstr"
+                      length="152"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[TamAd]"
+                      name="TamAd" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      name="SehirAd" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      name="BolgeAd" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      name="KategoriID" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[Yas]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[Yas]"
+                      name="Yas" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      name="ServetTRY" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
+                      dataType="i8"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
+                      name="SiraNo" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_CustomerRanking.Paths[OLE DB Source Output]"
+              endId="Package\DFT_CustomerRanking\DFT_CustomerRanking.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_CustomerRanking\SRC_CustomerRanking.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\DFT_CustomerWealth"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -795,6 +1302,23 @@ INNER JOIN
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\SQL_ClearCustomerRanking"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{26EE093F-8688-4B31-AF0B-062693F471CE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_ClearCustomerRanking"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6490116-8985-4458-BD8A-BD710A6F20DF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Stg_MusteriSiralama;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\SQL_ClearCustomerWealth"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -837,6 +1361,22 @@ INNER JOIN
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\DFT_CustomerWealth" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB7540E6-3D53-4219-ACF1-11E59F23ED2E}"
+      DTS:From="Package\DFT_CustomerWealth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL_ClearCustomerRanking" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD5AED3C-6208-4FE9-8D9F-A77646FFC02F}"
+      DTS:From="Package\SQL_ClearCustomerRanking"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\DFT_CustomerRanking" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -849,15 +1389,15 @@ INNER JOIN
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="195,42"
           Id="Package\DFT_CustomerAnalysis"
-          TopLeft="234,132" />
+          TopLeft="557,24" />
         <NodeLayout
           Size="188,42"
           Id="Package\DFT_CustomerWealth"
-          TopLeft="236,326" />
+          TopLeft="557,138" />
         <NodeLayout
           Size="223,42"
           Id="Package\SQL_ClearCustomerLocation"
@@ -865,21 +1405,21 @@ INNER JOIN
         <NodeLayout
           Size="215,42"
           Id="Package\SQL_ClearCustomerWealth"
-          TopLeft="223,239" />
+          TopLeft="217,139" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="332,69">
+          TopLeft="444,46.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="113,0"
               Start="0,0"
-              End="0,55.5">
+              End="105.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="105.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -890,18 +1430,30 @@ INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="331,174">
+          TopLeft="654.5,66">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="-330,73"
               Start="0,0"
-              End="0,57.5">
+              End="-330,65.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="-4,36.5" />
+                  <mssgle:LineSegment
+                    End="-326,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-326,36.5"
+                    Point2="-330,36.5"
+                    Point3="-330,40.5" />
+                  <mssgle:LineSegment
+                    End="-330,65.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -912,18 +1464,82 @@ INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="330.25,281">
+          TopLeft="432,159.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="125,0"
               Start="0,0"
-              End="0,37.5">
+              End="117.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DFT_CustomerRanking"
+          TopLeft="550,267" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\SQL_ClearCustomerRanking"
+          TopLeft="214,263" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="651,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-326,83"
+              Start="0,0"
+              End="-326,75.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="-4,41.5" />
+                  <mssgle:LineSegment
+                    End="-322,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-322,41.5"
+                    Point2="-326,41.5"
+                    Point3="-326,45.5" />
+                  <mssgle:LineSegment
+                    End="-326,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="436,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,0"
+              Start="0,0"
+              End="106.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="106.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -939,7 +1555,7 @@ INNER JOIN
     design-time-name="Package\DFT_CustomerAnalysis">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="196,42"
           Id="Package\DFT_CustomerAnalysis\DST_CustomerLocation"
@@ -979,7 +1595,9 @@ INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1015,7 +1633,7 @@ INNER JOIN
     design-time-name="Package\DFT_CustomerWealth">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="190,42"
           Id="Package\DFT_CustomerWealth\SRC_CustomerWealth"
@@ -1043,7 +1661,9 @@ INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1067,6 +1687,77 @@ INNER JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_CustomerRanking">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\DFT_CustomerRanking\SRC_CustomerRanking"
+          TopLeft="225,37" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DFT_CustomerRanking\DFT_CustomerRanking"
+          TopLeft="275,238" />
+        <EdgeLayout
+          Id="Package\DFT_CustomerRanking.Paths[OLE DB Source Output]"
+          TopLeft="323,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.5,159"
+              Start="0,0"
+              End="49.5,151.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.5"
+                    Point2="0,79.5"
+                    Point3="4,79.5" />
+                  <mssgle:LineSegment
+                    End="45.5,79.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.5,79.5"
+                    Point2="49.5,79.5"
+                    Point3="49.5,83.5" />
+                  <mssgle:LineSegment
+                    End="49.5,151.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_CustomerRanking\SRC_CustomerRanking">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_CustomerRanking\DFT_CustomerRanking">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

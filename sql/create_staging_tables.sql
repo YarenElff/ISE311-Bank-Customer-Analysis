@@ -20,3 +20,17 @@ CREATE TABLE dbo.Stg_MusteriServet
     VarlikTRY DECIMAL(19,4),
     ServetTRY DECIMAL(19,4)
 );
+
+-- Creates the staging table for customer ranking information.
+-- Stores each customer's rank within their region and category.
+
+CREATE TABLE dbo.Stg_MusteriSiralama
+(
+    MusteriID INT,
+    KategoriID CHAR(1),
+    TamAd NVARCHAR(200),
+    SehirAd NVARCHAR(100),
+    BolgeAd NVARCHAR(100),
+    Yas INT,
+    SiraNo BIGINT
+);
